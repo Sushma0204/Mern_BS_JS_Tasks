@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            min-width: 100px;
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        .form-group input, .form-group textarea {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .warning {
+            color: red;
+            margin-left: 10px;
+        }
+
+        .submit-button {
+            margin-top: 20px;
+        }
+
+        /* Add style for invalid input fields */
+        .invalid-input {
+            border-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" class="input-field">
+                <span id="nameWarning" class="warning"></span>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" id="email" class="input-field">
+                <span id="emailWarning" class="warning"></span>
+            </div>
+            <div class="form-group">
+                <label for="web">Website:</label>
+                <input type="text" id="web" class="input-field">
+                <span id="webWarning" class="warning"></span>
+            </div>
+            <div class="form-group">
+                <label for="mess">Message:</label>
+                <textarea cols="20" rows="4" id="mess" class="input-field"></textarea>
+                <span id="messWarning" class="warning"></span>
+            </div>
+            <button type="button" class="submit-button" onclick="check()">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function check() {
+            const nameInput = document.getElementById("name");
+            const emailInput = document.getElementById("email");
+            const webInput = document.getElementById("web");
+            const messInput = document.getElementById("mess");
+
+            const nameWarning = document.getElementById("nameWarning");
+            const emailWarning = document.getElementById("emailWarning");
+            const webWarning = document.getElementById("webWarning");
+            const messWarning = document.getElementById("messWarning");
+
+            let isValid = true;
+
+            // Check Name field
+            if (nameInput.value.trim() === "") {
+                nameWarning.textContent = "This field is required!";
+                nameInput.classList.add("invalid-input");
+                isValid = false;
+            } else {
+                nameWarning.textContent = "";
+                nameInput.classList.remove("invalid-input");
+            }
+
+            // Check Email field
+            if (emailInput.value.trim() === "") {
+                emailWarning.textContent = "This field is required!";
+                emailInput.classList.add("invalid-input");
+                isValid = false;
+            } else {
+                emailWarning.textContent = "";
+                emailInput.classList.remove("invalid-input");
+            }
+
+            // Check Website field
+            if (webInput.value.trim() === "") {
+                webWarning.textContent = "This field is required!";
+                webInput.classList.add("invalid-input");
+                isValid = false;
+            } else {
+                webWarning.textContent = "";
+                webInput.classList.remove("invalid-input");
+            }
+
+            // Check Message field
+            if (messInput.value.trim() === "") {
+                messWarning.textContent = "This field is required!";
+                messInput.classList.add("invalid-input");
+                isValid = false;
+            } else {
+                messWarning.textContent = "";
+                messInput.classList.remove("invalid-input");
+            }
+
+            // If any field is not filled, set all input fields' borders to red
+            if (!isValid) {
+                const inputFields = document.querySelectorAll(".input-field");
+                inputFields.forEach(function(field) {
+                    field.style.borderColor = "red";
+                });
+            } else {
+                const inputFields = document.querySelectorAll(".input-field");
+                inputFields.forEach(function(field) {
+                    field.style.borderColor = ""; // Reset border color to default
+                });
+            }
+
+            // If all fields are filled, submit the form
+            if (isValid) {
+                alert("Form submitted successfully!");
+                // You can also submit the form using form.submit() here if needed.
+            }
+        }
+    </script>
+</body>
+</html>

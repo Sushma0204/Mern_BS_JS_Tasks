@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Date and Time Display</title>
+    <style>
+        #datetime {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .button-container {
+            margin-bottom: 10px;
+        }
+
+        button {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <button id="showDate" onclick="showDate()">Show Date</button>
+        <div id="dateContainer"></div>
+    </div>
+    <div class="button-container">
+        <button id="showTime" onclick="showTime()">Show Time</button>
+        <div id="timeContainer"></div>
+    </div>
+
+    <script>
+        const dateContainer = document.getElementById("dateContainer");
+        const timeContainer = document.getElementById("timeContainer");
+
+        function showDate() {
+            const now = new Date();
+            const date = now.toDateString();
+            dateContainer.textContent = `Date: ${date}`;
+            timeContainer.textContent = ''; // Clear time display
+        }
+
+        function showTime() {
+            const now = new Date();
+            const time = now.toLocaleTimeString();
+            timeContainer.textContent = `Time: ${time}`;
+            dateContainer.textContent = ''; // Clear date display
+        }
+    </script>
+</body>
+</html>

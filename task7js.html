@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <script type="text/javascript">
+      var img = null;
+      var intervalID = null;
+      var isMoving = false;
+
+      function init() {
+         img = document.getElementById('myimg');
+         img.style.position = 'relative';
+         img.style.left = '50px';
+      }
+
+      function startMoving() {
+         if (!isMoving) {
+            intervalID = setInterval(moveRight, 1000);
+            isMoving = true;
+         }
+      }
+
+      function stopMoving() {
+         if (isMoving) {
+            clearInterval(intervalID);
+            isMoving = false;
+         }
+      }
+
+      function moveRight() {
+         img.style.left = parseInt(img.style.left) + 50 + 'px';
+      }
+
+      window.onload = init;
+   </script>
+</head>
+
+<body>
+   <form>
+      <img id="myimg" src="train.jfif" />
+      <center>
+         <p>Click the below buttons to start and stop moving the image right</p>
+         <input type="button" value="Start" onclick="startMoving();" />
+         <input type="button" value="Stop" onclick="stopMoving();" />
+      </center>
+   </form>
+</body>
+</html>

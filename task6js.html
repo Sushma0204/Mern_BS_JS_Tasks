@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+.container{
+    width:350px;
+    background-color: #cccccc75;
+    margin-left: auto;
+    margin-right: auto;
+    height: 280px;
+    border-radius: 5px;
+}
+.input-container {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  width: 93%;
+  margin-bottom: 15px;
+  text-align: center;
+  padding-left: 20px;
+  
+}
+
+.icon {
+  padding: 10px;
+  background:#f3f3f3;
+  color: #000;
+  min-width: 50px;
+  text-align: center;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  border: 1px solid #ccc;
+}
+
+.input-field:focus {
+  border: 2px solid dodgerblue;
+}
+
+/* Set a style for the submit button */
+.btn {
+  background-color: dodgerblue;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  
+  opacity: 0.9;
+  width:87%;
+  margin-left: 20px;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+.insta{
+    text-align: center;
+    font-family: 'Lucida ';
+font-style: italic;
+margin-top: 20px;
+padding: 10px;
+width:100%;
+}
+footer{
+    margin-top: 10px;
+    
+    margin-left:8px;
+}
+.rem{
+    float:left;
+}
+.forget{
+    float:right;
+    margin-top: -18px;
+    margin-right: 25px;
+}
+.signin,.forget{
+    color: dodgerblue;
+    text-decoration: none;
+}
+.foot{
+    text-align: center;
+}
+.logged-in-message {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <form id="loginForm" style="max-width:500px;margin:auto">
+        <h2 class="insta">Instagram</h2>
+        <div class="input-container">
+            <i class="fa fa-user icon"></i>
+            <input class="input-field" type="text" placeholder="Username" name="usrnm">
+        </div>
+        <div class="input-container">
+            <i class="fa fa-key icon"></i>
+            <input class="input-field" type="password" placeholder="Password" name="psw">
+        </div>
+        <button type="submit" class="btn">Log in</button>
+        <footer>
+            <div>
+                <input type="checkbox"  name="Rememberme" class="rem">
+                <label for="Rememberme">Remember me</label><br>
+                <a href="#" class="forget">Forget Password?</a>
+            </div>
+        </footer>
+    </form>
+    <div id="loggedInMessage" class="logged-in-message">
+        Hello there
+    </div>
+</div>
+<p class="foot">Don't have an account! <a href="#" class="signin">Sign up here.</a></p>
+
+<script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        // Assuming a successful login, display the message.
+        document.getElementById("loginForm").style.display = "none";
+        document.getElementById("loggedInMessage").style.display = "block";
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function reverse() {
+        var num = parseInt(document.getElementById("no").value);
+        var reversed = 0; // Changed variable name to "reversed"
+
+        while (num !== 0) {
+            reversed = reversed * 10 + num % 10;
+            num = Math.floor(num / 10);
+        }
+
+        document.write("Reversed number: " + reversed); // Corrected variable name to "reversed"
+    }
+</script>
+
+<body>
+    Enter number:
+    <input type="text" id="no">
+    <button onclick="reverse()">Reverse</button>
+</body>
+
+</html>
